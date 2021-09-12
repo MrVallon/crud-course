@@ -46,7 +46,13 @@ function App() {
     }
   }
 
-  const handleCleanClick = () => setUserData(initialValues);
+  const handleCleanClick = () => {
+    setUserData(initialValues);
+    setEditableUserData({
+      isEdit: false,
+      userIndex: null
+    })
+  };
 
   const handleEditClick = ({ user, index }) => {
     setUserData(user);
@@ -110,6 +116,7 @@ function App() {
                 handleClick={() => {}}
                 data={null}
                 type="submit"
+                disabled={!isFilledFields}
               />
             </div>
           </form>
